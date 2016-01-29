@@ -1,0 +1,43 @@
+<html>
+
+  <head>
+    <title>Angular 2 QuickStart</title>
+
+    <link rel="stylesheet" type="text/css" href="app/resources/delta/theme.css" />
+    <link rel="stylesheet" type="text/css" href="app/resources/icons/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="app/resources/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="app/resources/primeui-3.0.1-SNAPSHOT-min.css" />
+
+    <!-- 1. Load libraries -->
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="app/resources/jquery.js"></script>
+    <script src="app/resources/jquery-ui.js"></script>
+    <script src="app/resources/primeui-3.0.1-SNAPSHOT-min.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            defaultJSExtensions: true,
+            packages: {
+                "/angular2": {"defaultExtension": false}
+            },
+            map: {
+                'primeng': 'node_modules/primeng'
+            }
+        });
+      System.import('app/boot').then(null, console.error.bind(console));
+    </script>
+
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>

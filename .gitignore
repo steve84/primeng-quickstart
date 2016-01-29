@@ -1,0 +1,7 @@
+node_modules
+*.js
+*.log
+*.map
+*.d.ts
+!app/resources/**/*.js
+.idea/
