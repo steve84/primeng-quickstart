@@ -5,3 +5,4 @@ node_modules
 *.d.ts
 !app/resources/*.js
 .idea/
+*.DS_Store
