@@ -5,10 +5,12 @@ import {InputText} from 'primeng/primeng';
 	selector: 'my-app',
 	template: `
         <h1>My First 2 App</h1>
-        <input type="text" pInputText/>
+        <input type="text" pInputText [(ngModel)]="text" />
+        {{text}}
     `,
     directives: [InputText]
 })
 export class AppComponent {
 
+    text: string;
 }
