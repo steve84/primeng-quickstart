@@ -6,3 +6,4 @@ node_modules
 !app/resources/*.js
 .idea/
 *.DS_Store
+typings
