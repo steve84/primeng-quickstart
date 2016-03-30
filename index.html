@@ -21,13 +21,14 @@
         System.config({
             defaultJSExtensions: true,
             packages: {
-                "/angular2": {"defaultExtension": false}
+                'app': {"defaultExtension": 'js'}
             },
             map: {
+                'angular2': 'node_modules/angular2',
                 'primeng': 'node_modules/primeng'
             }
         });
-      System.import('app/boot').then(null, console.error.bind(console));
+        System.import('app/boot').then(null, console.error.bind(console));
     </script>
 
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
