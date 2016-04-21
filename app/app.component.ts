@@ -1,13 +1,13 @@
 import {Component} from 'angular2/core';
-import {HTTP_PROVIDERS}    from 'angular2/http';
-import {InputText,DataTable,Button,Dialog,CodeHighlighter,TabView,TabPanel,Column,Header,Footer} from 'primeng/primeng';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import {InputText,DataTable,Button,Dialog,Column,Header,Footer} from 'primeng/primeng';
 import {Car} from './cars/car';
 import {CarService} from './cars/carservice';
 
 @Component({
 	templateUrl: 'app/app.component.html',
 	selector: 'my-app',
-    directives: [InputText,DataTable,Button,Dialog,CodeHighlighter,TabView,TabPanel,Column,Header,Footer],
+    directives: [InputText,DataTable,Button,Dialog,Column,Header,Footer],
 	providers: [HTTP_PROVIDERS,CarService]
 })
 export class AppComponent {
@@ -25,6 +25,7 @@ export class AppComponent {
     constructor(private carService: CarService) { }
 
     ngOnInit() {
+        console.log('x');
         this.carService.getCarsMedium().then(cars => this.cars = cars);
     }
 
