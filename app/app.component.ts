@@ -25,7 +25,6 @@ export class AppComponent {
     constructor(private carService: CarService) { }
 
     ngOnInit() {
-        console.log('x');
         this.carService.getCarsMedium().then(cars => this.cars = cars);
     }
 
