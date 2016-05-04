@@ -1,13 +1,14 @@
 import {Component} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {InputText,DataTable,Button,Dialog,Column,Header,Footer} from 'primeng/primeng';
+import {DataTable, Column, TabView, TabPanel, Fieldset, InputText, RadioButton, Checkbox, Button} from 'primeng/primeng';
 import {Car} from './cars/car';
 import {CarService} from './cars/carservice';
+import {MenuComponent} from './menu.component';
 
 @Component({
 	templateUrl: 'app/app.component.html',
 	selector: 'my-app',
-    directives: [InputText,DataTable,Button,Dialog,Column,Header,Footer],
+  directives: [DataTable, Column, TabView, TabPanel, Fieldset, InputText, RadioButton, Checkbox, Button, MenuComponent],
 	providers: [HTTP_PROVIDERS,CarService]
 })
 export class AppComponent {
@@ -18,14 +19,29 @@ export class AppComponent {
 
     selectedCar: Car;
 
+		selectedSearch: string;
+
     newCar: boolean;
 
-    cars: Car[];
+    cars: any[];
 
-    constructor(private carService: CarService) { }
+		cols: any[];
+
+		value: boolean;
+
+    constructor(private carService: CarService) {
+			this.value = false;
+		}
 
     ngOnInit() {
-        this.carService.getCarsMedium().then(cars => this.cars = cars);
+        this.carService.getCarsMedium().subscribe(cars => this.cars = cars.streets, err => console.log(err));
+				this.cols = [
+					{field: 'id', header: 'ID'},
+					{field: 'streetName', header: 'Streetname'},
+					{field: 'lang', header: 'Language'},
+					{field: 'href', header: 'Link'},
+					{field: 'rel', header: 'Relation'},
+				];
     }
 
     showDialogToAdd() {
